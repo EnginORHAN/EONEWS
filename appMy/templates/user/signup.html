@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block style %}
+<style>
+  .form{
+      width: 45%;
+      height: 70vh;
+      background-color: #f2f2f2;
+  }
+  .giris{
+      background-color: #d9d9d9;
+  }
+</style>
+{% endblock style %}
+
+
+{% block title %}
+  Kayıt Ol
+{% endblock title %}
+  
+
+
+{% block body %}
+<main>
+  <div class="container card-header d-flex justify-content-center my-5 ">
+      <form method="POST" class="form m-5 p-5" >
+          {% csrf_token %}
+          <h3 class="text-center my-4">Kayıt Ol</h3>
+          <!-- ad -->
+          <div class="form-outline my-4">
+              <input name="name" type="text" id="name" class="form-control" />
+              <label class="form-label" for="name">Adınmız</label>
+            </div>
+            <!-- soyad -->
+            <div class="form-outline my-4">
+              <input name="surname" type="text" id="surname" class="form-control" />
+              <label class="form-label" for="surname">Soyadınız</label>
+            </div>
+          <!-- Email input -->
+          <div class="form-outline my-4">
+            <input name="email" type="email" id="email" class="form-control" />
+            <label class="form-label" for="email">Email</label>
+          </div>
+          <!-- username -->
+          <div class="form-outline my-4">
+              <input name="username" type="text" id="username" class="form-control" />
+              <label class="form-label" for="username">Kullanıcı Adınız</label>
+            </div>
+            <!-- password -->
+          <div class="form-outline my-4">
+            <input name="password1" type="password" id="password1" class="form-control" />
+            <label class="form-label" for="password1">Şifre</label>
+          </div>
+            <!-- password -->
+            <div class="form-outline my-4">
+              <input name="password2" type="password" id="password2" class="form-control" />
+              <label class="form-label" for="password2">Tekrar Şifre</label>
+            </div>
+
+          <div class="div d-flex justify-content-center">
+              <button type="submit" class="btn giris mb-4 ">Kayıt Ol</button>
+          </div>
+
+          <div class="text-center">
+            <p>Zaten Hesabınız Varmı? <a href="/eonews/giris" class="btn btn-sm giris">Giriş Yap</a></p>
+          </div>
+        </form>
+  </div>
+</main>
+
+{% endblock body %}
+  
+   

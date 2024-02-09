@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+  Ana Sayfa
+{% endblock title %}
+  
+
+
+
+{% block body %}
+<main>
+    <div class="container">
+      {% if header_section %}
+        <header>
+            <div class="row mt-5">
+              <div class="col-md-12 col-lg-7">
+                  <div id="carouselExampleCaptions" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
+                      <div class="carousel-indicators">
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleCaptions"
+                          data-mdb-slide-to="0"
+                          class="active"
+                          aria-current="true"
+                          aria-label="Slide 1"
+                        ></button>
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleCaptions"
+                          data-mdb-slide-to="1"
+                          aria-label="Slide 2"
+                        ></button>
+                        <button
+                          type="button"
+                          data-mdb-target="#carouselExampleCaptions"
+                          data-mdb-slide-to="2"
+                          aria-label="Slide 3"
+                        ></button>
+                      </div>
+                      <div class="carousel-inner">
+                        {% for i in news_slider %}
+                        <div class="carousel-item active">
+                          <a class="text-dark" href="haber/{{ i.slug }}">
+                            <img src="{{ i.image.url }}" class="d-block w-100" alt="Wild Landscape" style="height: 21rem;"/>
+                          </a>
+                          <div class="carousel-caption d-none d-md-block ">
+                            <a href="haber/{{ i.slug }}">
+                              <h5 class="text-white">{{ i.title | truncatechars:60 }}</h5>
+                            </a>
+                            <p style="line-height:0rem ; margin-bottom: -.1rem; ">{{ i.author }}</p>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+              </div>
+              <div class="col-lg-5 col-md-12">
+              <div class="row">
+                
+                {% for i in news_left %}
+                <div class="card " style="max-height: 200px; height: 110px;">
+                  <div class="row g-0 d-flex">
+                    <div class="col-4">
+                    <a class="text-dark" href="haber/{{ i.slug }}">
+                      <img
+                        style="max-height: 190px; height: 100px; object-fit: cover; object-position: center;"
+                        src="{{ i.image.url }}"
+                        alt="Trendy Pants and Shoes"
+                        class="img-fluid w-100 mt-1"
+                      />
+
+                    </a> 
+                    </div>
+                    <div class="col-8 d-flex">
+                      <div class="card-body justify-content-center align-items-center">
+                          <div class="card-title-pos">
+                            <a class="text-dark d-flex justify-content-between row" href="haber/{{ i.slug }}">
+                              <h5 class="card-title col-9" style="line-height: 1.2rem;">{{ i.title | truncatechars:30 }}</h5>
+                              <p class="card-text col-3">
+                                <small class="text-muted" style="font-size: .5rem;">{{ i.date_now }}</small>
+                            </p>
+                            </a>
+                          </div>
+                          <a class="text-dark" href="haber/{{ i.slug }}">
+                            <p class="card-text card-text-pos overflow-hidden" style="line-height: 1rem;">
+                            {{ i.text|truncatechars:60 }}
+                            </p>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                {% endfor %}
+                  
+                
+              </div>
+              </div>
+            </div>
+        </header>
+      {% endif %}
+   
+      <section class="mt-4">
+          <div class="row">
+
+            {% for i in news_list %}
+            <div class="col-lg-6 col-md-12">
+                <div class="card mb-3" style=" max-height: 200px;">
+                    <div class="row g-0">
+                      <div class=" col-3">
+                       <a class="text-dark" href="/haber/{{ i.slug }}">
+                         <img
+                           style="height: 11rem; object-fit: cover;  "
+                           src="{{ i.image.url }}"
+                           alt="Trendy Pants and Shoes"
+                           class="img-fluid w-100"
+                         />
+
+                       </a>
+                      </div>
+                      <div class="col-sm-9">
+                        <div class="card-body">
+                            <div style="margin-top: -1rem;">
+                              <a class="text-dark row d-flex justify-content-between" href="/haber/{{ i.slug }}">
+                                <h5 class="card-title col-9 fw-bold fs-4"> {{ i.title }} </h5>
+                                <p class="card-text col-3">
+                                    <small class="text-muted" style="font-size: .7rem;"> {{ i.date_now }} </small>
+                                </p>
+                              </a>
+                            </div>
+                            <a class="text-dark" href="/haber/{{ i.slug }}">
+                              <p class="card-text" style="line-height: 1.3rem;">
+                                {{ i.text| truncatechars:150 }}
+                              </p>
+                            </a>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+              
+            {% endfor %}
+              
+
+          </div>
+      </section>
+    </div>
+</main>
+{% endblock body %}
+
+
+
+    
+

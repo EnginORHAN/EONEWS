@@ -1,0 +1,62 @@
+{% load static %}
+
+<style>
+  footer section{
+    background-color: #591C21;  
+    color: white;
+  }
+
+
+  
+</style>
+
+<footer>
+    <section>
+      <div class="container text-center text-md-start mt-5" >
+        <div class="row mt-3">
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto my-4">
+            <h6 class="text-center mb-4">
+              <img src="{% static 'img/eoof.png' %}" style="width: 5rem; height: 5rem;">              
+            </h6>
+            <p class="text-center">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores ut excepturi reiciendis aspernatur debitis delectus labore, eos quas. Eius a dicta sapiente possimus quibusdam ipsum! Molestiae, dolore nobis   
+            </p>
+          </div>
+      
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto my-4 text-center">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Hızlı Erişim
+            </h6>
+
+            {% for i in category_list %}
+            <p class="nav-item" >
+              <a href=" /{{ i.slug }} "> {{ i.title }} </a>
+            </p>
+            {% endfor %}   
+          </div>
+          <!-- Grid column -->
+  
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 my-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Sosyal Medya</h6>
+            <p><a href="#" class="text-white"><i class="fa-brands fa-x-twitter"></i> Twitter  </a></p>
+            <p><a href="#" class="text-white"><i class="fa-brands fa-facebook-f"></i> Facebook</a></p>
+            <p><a href="#" class="text-white"><i class="fa-brands fa-instagram"></i> İnstagram</a></p>
+            <p><a href="#" class="text-white"><i class="fa-brands fa-linkedin"></i> Linkedin  </a></p>
+            <p><a href="#" class="text-white"><i class="fa-brands fa-reddit"></i> Reddit</a></p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4 text-secondary" style="background-color:#044040;">
+      © 2024 Copyright:Engin ORHAN
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+

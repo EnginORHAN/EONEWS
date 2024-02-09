@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+  İletişim
+{% endblock title %}
+  
+
+{% block body %}
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 col-lg-6">
+                <div class="card mt-2">
+                    <img src="" alt="">
+                    <h3 class="fw-bold text-center mt-5 mb-4">HAKKIMIZDA</h3>
+                    <div class="container">
+                        <p class="mt-2 mx-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptates exercitationem natus molestiae neque, vero ab delectus magnam quibusdam odit? Aliquid numquam laboriosam natus eveniet quia perspiciatis eos porro quo?Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nostrum ad non recusandae tenetur error quisquam perspiciatis officiis voluptatum, culpa quaerat deserunt consequuntur qui rem, quis, praesentium optio debitis dignissimos.lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium at necessitatibus, quo totam blanditiis, molestias aspernatur laudantium ab corrupti reprehenderit id. Temporibus eum et vero sit consequuntur repellat ex? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi cupiditate maiores nobis, tempora reprehenderit asperiores neque earum sapiente vitae temporibus ex, nemo aliquid quasi alias doloribus? Doloremque laboriosam eos aliquam?
+                            Porro praesentium, tenetur neque fugit nostrum at, facilis quos laboriosam corporis qui recusandae aspernatur accusamus repudiandae non harum nihil asperiores reiciendis sapiente reprehenderit laborum illum! Possimus quisquam eum consequuntur! Placeat.
+                            Aperiam totam obcaecati rem illum nemo corporis, et quisquam officiis odit, maxime nisi quasi optio magnam sunt quia soluta consequatur ex quaerat repellendus ad nostrum temporibus beatae. Facere, temporibus aliquid.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 g-3">
+                <div class="card w-100 h-100 d-flex justify-content-center align-items-center">
+                    <h3 class="mt-3">Bizimle İletişime Geçin</h3>
+                    <form method="POST" style="width: 26rem;">    
+                        {% csrf_token %}
+                        <div data-mdb-input-init class="form-outline mb-3">
+                          <input type="text" name="fullname" id="fullname" class="form-control" />
+                          <label class="form-label" for="fullname">Adınız Soyadınız</label>
+                        </div>
+                      
+                        <!-- Email input -->
+                        <div data-mdb-input-init class="form-outline mb-3">
+                          <input type="email" id="email" name="email" class="form-control" />
+                          <label class="form-label" for="email">Email adresiniz</label>
+                        </div>
+
+                        <!-- Konu input -->
+                        <div data-mdb-input-init class="form-outline mb-3">
+                            <input type="text" name="title" id="title" class="form-control" />
+                            <label class="form-label" for="title">Konu</label>
+                          </div>
+                      
+                        <!-- Message input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                          <label class="form-label" for="message">Mesajınız</label>
+                        </div>
+                      
+                        <!-- Submit button -->
+                        <div class="d-flex justify-content-end">
+                            <button data-mdb-ripple-init type="submit" class="btn btn-primary mb-4">Gönder</button>
+                        </div>
+                      </form>
+
+                      <div class="card-footer text-start  ">
+                        <a href="tel: +90 5000 0000 00" class="d-block text-dark"><i class="fa-solid fa-phone"></i>  Telefon Numaramız : +90 5000 0000 00</a>
+                        <a href="mailto: info@eonews.com" class="d-block text-dark"><i class="fa-solid fa-envelope-open"></i> Email Adresimiz :  info@eonews.com</a>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <section class="d-flex justify-content-center mt-5 ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50034.32433458627!2d27.304168403817805!3d38.39189001361254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b971b1866afd57%3A0x68dda9f422f01848!2zQXRhdMO8cmssIEtlbWFscGHFn2EvxLB6bWly!5e0!3m2!1str!2str!4v1704558953554!5m2!1str!2str" width="1200" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+    </div>
+</main>
+{% endblock body %}
+  
+
+
+ 

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+  Giriş Yap
+{% endblock title %}
+  
+
+{% block style %}
+<style>
+  .form{
+      width: 45%;
+      height: 70vh;
+      background-color: #f2f2f2;
+  }
+  .giris{
+      background-color: #d9d9d9;
+  }
+</style>
+{% endblock style %}
+
+
+{% block body %}
+  <main>
+      <div class="container card-header d-flex justify-content-center my-5 ">
+          <form method="POST" class="form m-5 p-5" >
+              {% csrf_token %}
+              <h3 class="text-center my-4">Giriş Yap</h3>
+              <h5 class="text-center my-5">Lütfen Kullanıcı Adı ve Parolanızı Giriniz</h5>
+              
+              {% for i in messages %}
+              <p class="text-danger text-center">{{ i }}</p>
+              {% endfor %}
+              
+              <!-- Email input -->
+              <div class="form-outline my-4">
+                <input name="username" type="text" id="username" class="form-control border" />
+                <label class="form-label" for="username">Kullanıcı Adı</label>
+              </div>
+
+              <div class="form-outline my-4">
+                <input name="password" type="password" id="password" class="form-control border" />
+                <label class="form-label" for="password">Parola</label>
+              </div>
+
+              <div class="my-4 text-center">
+                  <a href="{% url 'passwordChange' %}">Şifremi unuttum</a>
+              </div>
+              <div class="div d-flex justify-content-center">
+
+                  <button type="submit" class="btn giris mb-4 ">Giriş Yap</button>
+              </div>
+
+              <div class="text-center">
+                <p>Hesabınız Yokmu? <a href="/eonews/kayit" class="btn btn-sm giris">Kayıt Ol</a></p>
+              </div>
+            </form>
+      </div>
+  </main>
+{% endblock body %}

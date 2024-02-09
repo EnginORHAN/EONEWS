@@ -1,0 +1,72 @@
+  {% extends 'base.html' %}
+  {% load static %}
+
+  {% block title %}
+    {{i.slug}}
+  {% endblock title %}
+    
+  
+  {% block body %}
+<div class="container">
+  <div class="mt-5">
+      <img style="max-height: 23rem;" src="{{ news.image.url }}" class="card-img-top w-100 h-100" alt="Fissure in Sandstone"/>
+      <div class="card-body mt-5">
+        <h2 class="card-title text-center">{{ news.title|upper }}</h2>
+        <p class="card-text mt-4">{{ news.text | linebreaks }}</p>
+      </div>
+      <div class="card-foter d-flex justify-content-between mt-3">
+          <div class="text-muted">{{ news.author }}</div>
+          <div class="text-muted">{{ news.date_now }}</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Yorumlar</div>
+        <div class="card-body">
+          
+          {% for i in comment_list %}
+            <div class="card mt-2">
+              <div class="card-body">
+              <div class="card-title">
+                {{ i.fullname }}
+              </div>
+              <div class="card-text">
+                {{ i.comment }}
+              </div>
+              </div>
+            </div>
+          {% endfor %}
+            
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="fw-bold text-start">
+          Yorum Yap
+        </div>
+         <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <form style="width: 26rem;">
+              <!-- Name input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input name="fullname" type="text" id="fullname" class="form-control" />
+                <label class="form-label" for="fullname">Ad-Soyad</label>
+              </div>         
+              <!-- Message input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <textarea name="comment" class="form-control" id="comment" rows="4"></textarea>
+                <label class="form-label" for="comment">Yorum...</label>
+              </div>
+            
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary mb-4">Send</button>
+            </form>
+          </form>  
+          </div>
+      </div>
+    </div>
+
+
+</div>
+  {% endblock body %}
